@@ -6,7 +6,7 @@ def index(request):
     return render(request,'index.html')
 
 def postrecipe(request):
-    if request.method == 'POST':s
+    if request.method == 'POST':
         title = request.POST['title']
         image = request.POST['image']
         serves = request.POST['serves']
