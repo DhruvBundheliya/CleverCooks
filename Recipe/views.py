@@ -5,14 +5,8 @@ from django.views import View
 def index(request):
     return render(request,'index.html')
 
-def postrecipe2(request):
-    if request.method == 'POST':
-        recipe = Recipe(title=title, image=image)
-        recipe.save()
-    return render(request,'postrecipe2.html')
-
 def postrecipe(request):
-    if request.method == 'POST':
+    if request.method == 'POST':s
         title = request.POST['title']
         image = request.POST['image']
         serves = request.POST['serves']
