@@ -22,7 +22,8 @@ def postrecipe(request):
 
 def recipes(request):
     recipedetails = Recipe.objects.all()
-    return render(request,'recipes.html')
+    context = {'recipedetails' : recipedetails}
+    return render(request,'recipes.html', context)
 
 def recipe_desc(request):
     return render(request,'recipe_desc.html')
