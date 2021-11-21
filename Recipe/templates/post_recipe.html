@@ -11,8 +11,11 @@
         <br>
         <input type="text" name="title" maxlength="200" required id="id_title">
         <br>
-        <label for="id_image">Image:</label><br>
-        <input type="file" name="image" accept="image/*" required id="id_image"><br>
+        <label for="id_description">Description:</label><br>
+        <textarea name="description" cols="40" rows="10" required id="id_description"></textarea><br>
+
+        <label for="id_coverImage">Cover Image:</label><br>
+        <input type="file" name="coverImage" accept="image/*" required id="id_coverImage"><br>
 
         <label for="id_serves">Serves:</label><br>
         <input type="text" name="serves" maxlength="50" required id="id_serves"><br>
@@ -23,8 +26,8 @@
         <label for="id_ingredients">Ingredients:</label><br>
         <textarea name="ingredients" cols="40" rows="10" required id="id_ingredients"></textarea><br>
 
-        <label for="id_steps">Steps:</label><br>
-        <textarea name="steps" cols="40" rows="10" required id="id_steps"></textarea><br>
+        <label for="id_instructions">Instructions:</label><br>
+        <textarea name="instructions" cols="40" rows="10" required id="id_instructions"></textarea><br>
 
         <input type="submit" value="Submit" class="btn btn-primary" />
       </form>

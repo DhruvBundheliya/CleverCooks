@@ -8,13 +8,15 @@ def index(request):
 def postrecipe(request):
     if request.method == 'POST':
         title = request.POST['title']
-        image = request.POST['image']
+        description = request.POST['description']
+        coverImage = request.POST['coverImage']
         serves = request.POST['serves']
         time = request.POST['time']
         ingredients = request.POST['ingredients']
-        steps = request.POST['steps']
-        recipe = Recipe(title=title, image=image,serves=serves,time=time,ingredients=ingredients,steps=steps)
+        instructions = request.POST['instructions']
+        recipe = Recipe(title=title,description=description, coverImage=coverImage,serves=serves,time=time,ingredients=ingredients,instructions=instructions)
         recipe.save()
+        return render(request,'recipes.html')
     return render(request,'post_recipe.html')
 
 

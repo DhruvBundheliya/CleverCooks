@@ -5,11 +5,13 @@ from django.contrib.auth.models import User
 
 class Recipe(models.Model):
     title = models.CharField(max_length=200)
-    image= models.ImageField(upload_to="RecipeImage")
+    description = models.TextField()
+    coverImage= models.ImageField(upload_to="RecipeImage")
     serves = models.CharField(max_length=50)
     time = models.CharField(max_length=50)
     ingredients = models.TextField()
-    steps = models.TextField()
+    instructions = models.TextField()
+    pub_date = models.DateField()
 
     def __str__(self):
         return self.title
