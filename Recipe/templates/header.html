@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <title>CleverCooks</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}" />
   </head>
@@ -84,75 +83,3 @@
     crossorigin="anonymous"
   ></script>
 </html>
-
-
-<!--<div class="sidebar">
-  <div class="logo_content">
-    <div class="logo">
-      <a href="/">
-      <i class='bx bxs-food-menu'></i>
-      <div class="logo_name">CleverCooks</div>
-    </a>
-    </div>
-    <i class='bx bx-menu' id="btn"></i>
-  </div>
-  <ul class="nav_list">
-    <li>
-      <a href="/">
-        <i class='bx bx-grid-alt'></i>
-        <span class="links_name">Dashboard</span>
-      </a>
-      <span class="tooltip">Dashboard</span>
-    </li>
-    <li>
-        <i class='bx bx-search' ></i>
-        <input type="text" placeholder="search">
-      <span class="tooltip">Dashboard</span>
-    </li>
-    <li>
-      <a href="recipes">
-        <i class='bx bx-book-content'></i>
-        <span class="links_name">Recipe</span>
-      </a>
-      <span class="tooltip">Dashboard</span>
-    </li>
-    {% if request.user.is_authenticated %}
-    <li>
-      <a href="postrecipe">
-        <i class='bx bx-plus-medical' ></i>
-        <span class="links_name">Post</span>
-      </a>
-      <span class="tooltip">Dashboard</span>
-    </li>
-    <li>
-      <a href="profile">
-        <i class='bx bx-user'></i>
-        <span class="links_name">Profile</span>
-      </a>
-      <span class="tooltip">Dashboard</span>
-    </li>
-    <li>
-      <a href="logout">
-        <i class='bx bxs-log-out' ></i>
-        <span class="links_name">Sign Out</span>
-      </a>
-      <span class="tooltip">Dashboard</span>
-    </li>
-    {% else %}
-    <li>
-      <a href="register">
-        <i class='bx bxs-user-check'></i>
-        <span class="links_name">Register</span>
-      </a>
-      <span class="tooltip">Dashboard</span>
-    </li>
-    <li>
-      <a href="login">
-        <i class='bx bxs-log-in'></i>
-        <span class="links_name">Login</span>
-      </a>
-      <span class="tooltip">Dashboard</span>
-    </li>
-    {% endif %}
-  </ul>
-</div>-->
