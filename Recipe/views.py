@@ -16,14 +16,15 @@ def postrecipe(request):
         instructions = request.POST['instructions']
         recipe = Recipe(title=title,description=description, coverImage=coverImage,serves=serves,time=time,ingredients=ingredients,instructions=instructions)
         recipe.save()
-        return render(request,'recipes.html')
+        return redirect('recipes')
     return render(request,'post_recipe.html')
 
 
 def recipes(request):
-    recipedetails = Recipe.objects.all()
-    context = {'recipedetails' : recipedetails}
-    return render(request,'recipes.html', context)
+    recipes = Recipe.objects.all()
+    return render(request,'recipes.html',{'recipes':recipes})
 
-def recipe_desc(request):
-    return render(request,'recipe_desc.html')
+def recipe_desc(request, id):
+    recipedetails = Recipe.objects.filter(id = id)[0]
+    context = {'recipedetails' : recipedetails}
+    return render(request,'recipe_desc.html', context)

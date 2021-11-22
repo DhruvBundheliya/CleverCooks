@@ -7,7 +7,7 @@ class Recipe(models.Model):
     #recipe_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200)
     description = models.TextField()
-    coverImage= models.ImageField(upload_to="RecipeImage")
+    coverImage= models.ImageField(null=True, blank=True)
     serves = models.CharField(max_length=50)
     time = models.CharField(max_length=50)
     ingredients = models.TextField()
