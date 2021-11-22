@@ -26,5 +26,6 @@ def recipes(request):
 
 def recipe_desc(request, id):
     recipedetails = Recipe.objects.filter(id = id)[0]
-    context = {'recipedetails' : recipedetails}
+    recipes = Recipe.objects.all()
+    context = {'recipedetails' : recipedetails , 'recipes':recipes}
     return render(request,'recipe_desc.html', context)
