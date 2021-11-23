@@ -2,7 +2,49 @@
 {% block title %}CleverCooks | Post-Recipe{% endblock title %}
 {% block body %}
   <div class="container">
-    <div class="col-sm-12">
+    <div class="card text-dark bg-light mb-3">
+      <div class="card-header">
+        Post Recipe
+      </div>
+      <form action="" method="POST" >
+        {% csrf_token %}
+      <div class="card-body">
+        <strong><p class="card-title"><label for="id_title">Title:</label></p></strong>
+        <input type="text" name="title" maxlength="200" required id="id_title">
+      </div>
+      <div class="card-body">
+        <strong><p class="card-title"><label for="id_description">Description:</label></p></strong>
+        <textarea name="description" cols="40" rows="10" required id="id_description"></textarea>
+      </div>
+      <div class="card-body">
+        <strong><p class="card-title"><label for="id_coverImage">Cover Image:</label></p></strong>
+        <input type="file" name="coverImage" accept="image/*" required id="id_coverImage">
+      </div>
+      <div class="card-body">
+        <strong><p class="card-title"><label for="id_serves">Serves:</label></p></strong>
+        <input type="text" name="serves" maxlength="50" required id="id_serves">
+      </div>
+      <div class="card-body">
+        <strong><p class="card-title"><label for="id_time">Time:</label></p></strong>
+        <input type="text" name="time" maxlength="50" required id="id_time">
+      </div>
+      <div class="card-body">
+        <strong><p class="card-title"><label for="id_ingredients">Ingredients:</label></p></strong>
+        <textarea name="ingredients" cols="40" rows="10" required id="id_ingredients"></textarea>
+      </div>
+      <div class="card-body">
+        <strong><p class="card-title"><label for="id_instructions">Instructions:</label></p></strong>
+        <textarea name="instructions" cols="40" rows="10" required id="id_instructions"></textarea><br>
+      </div>
+      <div class="card-footer text-muted">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </div>
+      </form>
+    </div>
+  </div>
+  {% endblock body %}
+
+    <!--<div class="col-sm-12">
       <form action="" method="POST" >
         {% csrf_token %}
         <br>
@@ -31,8 +73,6 @@
 
         <input type="submit" value="Submit" class="btn btn-primary" />
       </form>
-      <br>
-      <br>
     </div>
-  </div>
-  {% endblock body %}
+  </div>-->
+  

@@ -3,7 +3,8 @@ from .models import Recipe
 from django.views import View
 
 def index(request):
-    return render(request,'index.html')
+    recipes = Recipe.objects.all()
+    return render(request,'index.html',{'recipes':recipes})
 
 def aboutus(request):
     return render(request,'aboutus.html')
