@@ -61,8 +61,9 @@ def loginpage(request):
         return render(request, 'login.html', context)
 
 
-def profile(request):
-    return render(request, 'profile.html')
+def profile(request,username):
+    user = User.objects.filter(username = username)[0]
+    return render(request, 'profile.html',{'user':user})
 
 
 def logoutUser(request):
@@ -77,3 +78,6 @@ def account_verify(request, token):
     messages.success(
         request, "Your Account has been verified, Now you can login")
     return redirect('/login')
+
+def editprofile(request):
+    return render(request,'editprofile.html')

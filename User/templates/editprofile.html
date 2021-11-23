@@ -1,0 +1,68 @@
+{% extends "basic.html" %} 
+{% block title %}Edit Profile{% endblock title %}
+{% block style %}
+  .container{
+      margin-left: 100px;
+  }
+{% endblock style %}
+{% block body %}
+    <div class="container">
+        <form class="form-group" name="profile">
+            <h2 class="title">Edit Profile</h2>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="inputname">Username</label>
+                    <input type="text" class="form-control" placeholder="{{user.username}}">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="inputname">First Name</label>
+                    <input type="text" class="form-control" placeholder="{{user.last_name}}">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="inputname">Last Name</label>
+                    <input type="text" class="form-control" placeholder="{{user.first_name}}">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="inputname">Bio</label>
+                    <input type="text-area" class="form-control" placeholder="Bio" maxlength="250">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="inputemail">Email</label>
+                    <input type="email" class="form-control" placeholder="{{user.email}}">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="inputphonenumber">Phone Number</label>
+                    <input type="tel" class="form-control" placeholder="Phone number">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="btn btn-primary">Update</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="btn btn-primary">Clear</button>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+    {% endblock body %}
