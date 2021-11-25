@@ -17,10 +17,13 @@
           <p><strong>Time:</strong> {{recipedetails.time}}</p>
         </div>
       </div>
+      <br>
       <div class="row">
         <div class="col">
-          <p><strong>Ingredients:</strong> {{recipedetails.ingredients}}</p>
-          <p><strong>Instructions:</strong> {{recipedetails.instructions}}</p>
+        <strong><h5 class="card-header">Ingredients: </h5></strong>
+          <p>{{recipedetails.ingredients}}</p>
+          <strong><h5 class="card-header">Instructions: </h5></strong>
+          <p>{{recipedetails.instructions}}</p>
         </div>
       </div>
       <div class="row">
@@ -29,6 +32,7 @@
           <div class="card-body">
             <div class="row my-2">
                 {% for item in recipes %}
+                {% if forloop.counter > 0 and forloop.counter < 5 %}
                 <div class="col-6">
                     <div class="card mb-3 " style="max-width: 540px;">
                         <div class="row g-0">
@@ -50,6 +54,7 @@
                 {% if forloop.counter|divisibleby:100 %}
             </div>
             <div class="row my-2"></div>
+            {% endif %}
             {% endif %}
             {% endfor %}
         </div>

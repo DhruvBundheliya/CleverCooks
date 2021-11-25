@@ -25,9 +25,7 @@ a:hover {
   text-decoration: none;
 }
 
-a:hover {
-  color: var(--primary-color) !important;
-}
+
 
 ul,
 ol {
@@ -184,59 +182,6 @@ p {
   color: var(--white-color);
 }
 
-/*
-==========================================
-   Header Design
-==========================================
-*/
-
-.navigation-wrap{
-  position:fixed;
-  width:100%;
-  left:0;
-  z-index:1000;
-  -webkit-transition:all 0.3s ease-out;
-  transition:all 0.3s ease-out;
-} 
-
-.navbar-brand{
-  color: var(--primary-color);
-  font-size: 28px;
-  font-family:var(--secondry-font)
-}
-.navigation-wrap .nav-item{
-  padding:0 0.625rem;
-  transition:all 200ms linear;
-}
-.navbar-toggler:focus{
-  outline:unset;
-  border:unset;
-  box-shadow: none;
-}
-.nav-link{
-  font-size:0.9375rem;
-  font-weight: 600;
-  text-transform: capitalize;
-  color:var(--primary-color);
-  letter-spacing: 1px;
-}
-.navigation-wrap .main-btn{
-  padding:0.3125rem 1.4375rem;
-  box-shadow: none;
-  margin-left:0.625rem;
-} 
-
-/* Change navbar styling on scroll */
-
-.navigation-wrap.scroll-on{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  background:var(--white-color);
-  box-shadow: 0 0.125rem 1.75rem 0 rgb(0,0,0,0.09);
-  transition:all .15s ease-in-out 0s;
-}
 
 
 
@@ -549,7 +494,7 @@ Responsive Design
 </section>   -->
   <!-- section-1 top-banner -->
   <section id="home">
-    <div class="container-fluid px-0 top-banner">
+    <div class="container-fluid  top-banner">
       <div class="container">
         <div class="row">
           <div class="col-lg-5 col-md-6">
@@ -638,6 +583,7 @@ Responsive Design
     <div class="row">
     <h3>Latest Recipes</h3>
     {% for item in recipes %}
+    {% if forloop.counter > 0 and forloop.counter < 5 %}
     <div class="col-6">
       <div class="card mb-3" style="max-width: 540px">
         <div class="row g-0">
@@ -664,6 +610,7 @@ Responsive Design
         </div>
       </div>
     </div>
+    {% endif %}
     {% endfor %}
  
 </div>
