@@ -510,7 +510,7 @@ Responsive Design
 {% endblock style %}
 {% block body %}
  <!-- section-1 top-banner -->
-  <section id="home">
+  <!-- <section id="home">
   <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div id="carouselSlider" class="carousel slide">
             <ol class="carousel-indicators">
@@ -546,7 +546,7 @@ Responsive Design
             </a>
           </div>
       </div>
-</section>  
+</section>   -->
 
   <!-- section-1 top-banner -->
   <section id="home">
@@ -626,6 +626,7 @@ Responsive Design
    </section>
 
   <!-- section-4 explore food-->
+  <br>
    <section id="explore-food">
  <div class="container">
        <div class="row">
@@ -635,7 +636,7 @@ Responsive Design
              </div>
            </div>
          </div>
-           <div class="row">
+    <div class="row">
     <h3>Latest Recipes</h3>
     {% for item in recipes %}
     <div class="col-6">
@@ -655,7 +656,7 @@ Responsive Design
               <p class="card-text">Serves: {{item.serves}}</p>
               <p class="card-text">Time: {{item.time}}</p>
               <p class="card-text">
-                <a href="recipe_desc">
+                <a href="recipe_desc/{{item.id}}">
                   <p>View full Recipe...</p> </a
                 ><small class="text-muted">Uploaded by: </small>
               </p>
