@@ -1,49 +1,62 @@
-{% extends "basic.html" %}
-{% block title %}CleverCooks | Recipe{% endblock title %}
+{% extends "basic.html" %} 
+{% block title %}CleverCooks | Recipe{% endblock title %} 
 {% block body %}
 <div class="container">
-    <div class="row">
-        <p><a href="/"> Home</a> / <a href="/recipes">Recipes</a></p>
-        <h3>{{recipedetails.title}}</h3>
-        <p>{{recipedetails.description}}</p>
-        <div class="col-5">
-            <img src='/media/{{recipedetails.coverImage}}'' alt=""  height="400" width="540">
+    <div class="card">
+        <h5 class="card-header">{{recipedetails.title}}</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{recipedetails.description}}</h5>
+            <div class="row">
+                <div class="col-6">
+                    <img src='/media/{{recipedetails.coverImage}}'' alt="" height="400"
+          width="540">
         </div>
+        <div class="col-3">
+            <br>
+          <p><strong>Serves:</strong> {{recipedetails.serves}}</p>
+          <p><strong>Time:</strong> {{recipedetails.time}}</p>
+        </div>
+      </div>
+      <div class="row">
         <div class="col">
-            <p><strong>Serves:</strong> {{recipedetails.serves}}</p>
-            <p><strong>Time:</strong> {{recipedetails.time}}</p>
+          <p><strong>Ingredients:</strong> {{recipedetails.ingredients}}</p>
+          <p><strong>Instructions:</strong> {{recipedetails.instructions}}</p>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <p><strong>Ingredients:</strong> {{recipedetails.ingredients}}</p>
-            <p><strong>Instructions:</strong> {{recipedetails.instructions}}</p>
-        </div>
-    </div>
-    <div class="row">
-        <h3>Latest Recipes</h3>
-        {% for item in recipes %}
-        <div class="col-6">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-6">
-                        <img src='/media/{{item.coverImage}}' class="img-fluid rounded-start" alt="..." >
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card-body">
-                            <h5 class="card-title">{{item.title}}</h5>
-                            
-                            <p class="card-text">Serves: {{item.serves}}</p>
-                            <p class="card-text">Time: {{item.time}}</p>
-                            <p class="card-text"><a href="recipe_desc">
-                                    <p>View full Recipe...</p>
-                                </a><small class="text-muted">Uploaded by: </small></p>
+      </div>
+      <div class="row">
+        
+          <h5 class="card-header">Latest Post</h5>
+          <div class="card-body">
+            <div class="row my-2">
+                {% for item in recipes %}
+                <div class="col-6">
+                    <div class="card mb-3 " style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <img src='/media/{{item.coverImage}}' class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{item.title}}</h5>
+                                    
+                                    <p class="card-text">Serves: {{item.serves}}</p>
+                                    <p class="card-text">Time: {{item.time}}</p>
+                                    <p class="card-text"><a href="recipe_desc/{{item.id}}">View full Recipe...</a></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% if forloop.counter|divisibleby:100 %}
             </div>
+            <div class="row my-2"></div>
+            {% endif %}
+            {% endfor %}
         </div>
-    {% endfor %}
+          </div>
+        
+      </div>
     </div>
+  </div>
 </div>
 {% endblock body %}

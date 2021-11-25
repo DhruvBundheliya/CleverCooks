@@ -2,32 +2,38 @@
 {% block title %}CleverCooks | Recipes{% endblock title %}
 {% block body %}
 {% load static %}
-
 <div class="container">
-    <div class="row my-2">
-        {% for item in recipes %}
-        <div class="col-6">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-6">
-                        <img src='/media/{{item.coverImage}}' class="img-fluid rounded-start" alt="..." >
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card-body">
-                            <h5 class="card-title">{{item.title}}</h5>
-                            
-                            <p class="card-text">Serves: {{item.serves}}</p>
-                            <p class="card-text">Time: {{item.time}}</p>
-                            <p class="card-text"><a href="recipe_desc/{{item.id}}">View full Recipe...</a></p>
+<div class="card ">
+    <h5 class="card-header">Recipes</h5>
+    <div class="card-body">
+        <div class="container">
+            <div class="row my-2">
+                {% for item in recipes %}
+                <div class="col-6">
+                    <div class="card mb-3 " style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-5">
+                                <img src='/media/{{item.coverImage}}' class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{item.title}}</h5>
+                                    
+                                    <p class="card-text">Serves: {{item.serves}}</p>
+                                    <p class="card-text">Time: {{item.time}}</p>
+                                    <p class="card-text"><a href="recipe_desc/{{item.id}}">View full Recipe...</a></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% if forloop.counter|divisibleby:100 %}
             </div>
+            <div class="row my-2"></div>
+            {% endif %}
+            {% endfor %}
         </div>
-        {% if forloop.counter|divisibleby:100 %}
     </div>
-    <div class="row my-2"></div>
-    {% endif %}
-    {% endfor %}
+</div>
 </div>
 {% endblock body %}
