@@ -16,3 +16,6 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+class Newsletter(models.Model):
+    emailaddress = models.EmailField(max_length = 254)

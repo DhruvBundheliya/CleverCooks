@@ -1,0 +1,38 @@
+{% extends "basic.html" %}
+{% block title %}Search Result{% endblock title %}
+{% block body %}
+{% load static %}
+<div class="container">
+<div class="card ">
+    <h5 class="card-header">Results</h5>
+    <div class="card-body">
+        <div class="container">
+            <div class="row my-2">
+                {% for item in recipes %}
+                <div class="col-6">
+                    <div class="card mb-3 " style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-6">
+                                <img src='/media/{{item.coverImage}}' class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{item.title}}</h5>
+                                    <p class="card-text"><strong>Description: </strong>{{item.description|slice:"0:76"}}...<br><strong>Serves: </strong>{{item.serves}}<br/><strong>Time: </strong>{{item.time}}<br/><a href="recipe_desc/{{item.id}}">View full Recipe...</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:100 %}
+            </div>
+            <div class="row my-2"></div>
+            {% endif %}
+
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+</div>
+{% endblock body %}

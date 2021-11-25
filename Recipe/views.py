@@ -1,9 +1,13 @@
-from django.shortcuts import render,redirect
-from .models import Recipe
+from django.shortcuts import render,redirect, HttpResponse
+from .models import Recipe, Newsletter
 from django.views import View
 
 def index(request):
     recipes = Recipe.objects.all()
+    if request.method == 'POST':
+         emailaddress = request.POST['emailaddress']
+         newsletter= Newsletter(emailaddress=emailaddress)
+         newsletter.save()
     return render(request,'index.html',{'recipes':recipes})
 
 def aboutus(request):
@@ -33,3 +37,9 @@ def recipe_desc(request, id):
     recipes = Recipe.objects.all()
     context = {'recipedetails' : recipedetails , 'recipes':recipes}
     return render(request,'recipe_desc.html', context)
+
+def search(request):
+    query = request.GET['query']
+    recipes = Recipe.objects.filter(title__icontains=query)
+    params = {'recipes' : recipes}
+    return render(request,'search.html',params)
